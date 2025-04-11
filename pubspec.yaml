@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
+  path_provider: ^2.1.4
 
 dev_dependencies:
   flutter_test:
@@ -39,8 +40,11 @@ flutter:
     # then add platforms following the instruction here:
     # https://flutter.dev/to/pubspec-plugin-platforms
     # -------------------
-      some_platform:
-        pluginClass: somePluginClass
+      android:
+        package: com.example.mopro_flutter_package
+        pluginClass: MoproFlutterPackagePlugin
+      ios:
+        pluginClass: MoproFlutterPackagePlugin
     # -------------------
 
   # To add assets to your plugin package, add an assets section, like this:

@@ -1,5 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
+import 'mopro_flutter_types.dart';
 import 'mopro_flutter_package_method_channel.dart';
 
 abstract class MoproFlutterPackagePlatform extends PlatformInterface {
@@ -8,7 +9,8 @@ abstract class MoproFlutterPackagePlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static MoproFlutterPackagePlatform _instance = MethodChannelMoproFlutterPackage();
+  static MoproFlutterPackagePlatform _instance =
+      MethodChannelMoproFlutterPackage();
 
   /// The default instance of [MoproFlutterPackagePlatform] to use.
   ///
@@ -25,5 +27,13 @@ abstract class MoproFlutterPackagePlatform extends PlatformInterface {
 
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<String> getApplicationDocumentsDirectory() {
+    throw UnimplementedError('getApplicationDocumentsDirectory() has not been implemented.');
+  }
+
+  Future<GenerateProofResult?> generateProof(String zkeyPath, String inputs) {
+    throw UnimplementedError('generateProof() has not been implemented.');
   }
 }
