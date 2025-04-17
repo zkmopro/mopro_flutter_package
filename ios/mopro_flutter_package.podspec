@@ -5,13 +5,13 @@
 Pod::Spec.new do |s|
   s.name             = 'mopro_flutter_package'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.summary          = 'Flutter plugin for mobile proving with Mopro.'
   s.description      = <<-DESC
-A new Flutter plugin project.
+A Flutter plugin for Mopro, enabling mobile proving with modern zero-knowledge proof systems.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://zkmopro.org/'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Mopro' => 'hello@zkmopro.org' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*', 'MoproiOSBindings/mopro.swift'
   s.dependency 'Flutter'

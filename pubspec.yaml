@@ -1,7 +1,7 @@
 name: mopro_flutter_package
-description: "A new Flutter plugin project."
+description: "A Flutter plugin for Mopro, enabling mobile proving with modern zero-knowledge proof systems."
 version: 0.0.1
-homepage:
+homepage: "https://zkmopro.org/"
 
 environment:
   sdk: ^3.7.2
