@@ -15,7 +15,7 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*', 'MoproiOSBindings/mopro.swift'
   s.dependency 'Flutter'
-  s.platform = :ios, '12.0'
+  s.platform = :ios, '15.0'
 
   s.vendored_frameworks = 'MoproiOSBindings/MoproBindings.xcframework'
 
