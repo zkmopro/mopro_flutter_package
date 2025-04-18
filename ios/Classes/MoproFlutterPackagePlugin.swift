@@ -1,5 +1,5 @@
 import Flutter
-import moproFFI
+import MoproFFI
 import UIKit
 
 public class MoproFlutterPackagePlugin: NSObject, FlutterPlugin {

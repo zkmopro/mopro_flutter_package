@@ -4,6 +4,8 @@ PODS:
     - Flutter
   - mopro_flutter_package (0.0.1):
     - Flutter
+    - MoproFFI (~> 0.3.0)
+  - MoproFFI (0.3.0)
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -13,6 +15,10 @@ DEPENDENCIES:
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - mopro_flutter_package (from `.symlinks/plugins/mopro_flutter_package/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+
+SPEC REPOS:
+  trunk:
+    - MoproFFI
 
 EXTERNAL SOURCES:
   Flutter:
@@ -27,7 +33,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
-  mopro_flutter_package: 0199efd335d8a38d8fdacacf00a21ce0cd665ea3
+  mopro_flutter_package: 6628139b3c25fb39f9c5ccf881d41326e95f5974
+  MoproFFI: 44c9078e134463c0a4a07d8a39abb1aada413284
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
 
 PODFILE CHECKSUM: 53a6aebc29ccee84c41f92f409fc20cd4ca011f1
