@@ -13,10 +13,10 @@ A Flutter plugin for Mopro, enabling mobile proving with modern zero-knowledge p
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Mopro' => 'hello@zkmopro.org' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'Classes/**/*', 'MoproiOSBindings/mopro.swift'
   s.dependency 'Flutter'
-  s.dependency 'MoproFFI', '~> 0.3.0'
   s.platform = :ios, '15.0'
+  s.vendored_frameworks = 'MoproiOSBindings/MoproBindings.xcframework'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
