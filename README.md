@@ -8,15 +8,7 @@ Follow these steps to integrate the Mopro Flutter package into your project.
 
 ### Adding a package dependency to an app
 
-1.  **Add Dependency:** You can add `mopro_flutter_package` to your project using the command line or by manually editing `pubspec.yaml`.
-
-    -   **Command Line (Recommended):**
-
-        ```bash
-        flutter pub add mopro_flutter_package
-        ```
-
-        This command automatically adds the latest compatible version to your `pubspec.yaml`.
+1.  **Add Dependency:** You can add `mopro_flutter_package` to your project by manually editing `pubspec.yaml`.
 
     -   **Manual Edit (Required for local path or specific Git dependencies):**
         Open your `pubspec.yaml` file and add `mopro_flutter_package` under `dependencies`.
@@ -26,8 +18,9 @@ Follow these steps to integrate the Mopro Flutter package into your project.
             flutter:
                 sdk: flutter
 
-            mopro_flutter_package: VERSION_YOU_PREFERRED
-            # mopro_flutter_package: ^0.1.0
+            mopro_flutter_package:
+                git:
+                    url: https://github.com/zkmopro/mopro_flutter_package
         ```
 
 2.  **Update Circuit Asset:** Include your compiled Circom `.zkey` file as an asset. Add the asset path to your `pubspec.yaml` under the `flutter:` section:
