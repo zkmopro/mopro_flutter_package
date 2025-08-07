@@ -52,89 +52,34 @@ Here's a basic example demonstrating how to use the package to generate and veri
 import 'package:mopro_flutter_package/mopro_flutter_package.dart';
 import 'package:mopro_flutter_package/mopro_flutter_types.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+final MoproFlutterPackage _mopro = MoproFlutterPackage();
+const String zkeyAssetName = 'assets/circuits/multiplier2_final.zkey';
 
-// --- Example Usage Widget ---
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+// Corresponds to the inputs of multiplier2.circom
+const int a = 3;
+const int b = 5;
+final Map<String, List<String>> inputs = {
+    'a': [a.toString()],
+    'b': [b.toString()],
+};
+// Convert inputs to JSON string
+final String inputsJson = jsonEncode(inputs);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
+// Use the zkey asset path provided in pubspec.yaml
+final GenerateProofResult proofResult = await _mopro.generateProof(
+    zkeyPath: zkeyAssetName,
+    inputs: inputsJson,
+);
 
-class _MyAppState extends State<MyApp> {
-  final MoproFlutterPackage _mopro = MoproFlutterPackage();
-  String _status = 'Idle';
-  String _proof = '';
-  List<String> _publicInputs = [];
+final bool isValid = await _mopro.verifyProof(
+    zkeyPath: zkeyAssetName, // Use the same zkey asset path
+    proof: proofResult.proof, // Use the generated proof
+    inputs: proofResult.inputs, // Use the public inputs from proof generation
+);
 
-  @override
-  void initState() {
-    super.initState();
-    // Optional: Initialize any platform-specific setup if needed
-    // _mopro.initialize();
-  }
-
-  Future<void> _runProveAndVerify() async {
-    setState(() => _status = 'Initializing...');
-
-    // TODO: Robust asset handling (copying to accessible temp path)
-    // This example assumes the native code can handle the asset path directly.
-    // You might need to copy the asset to a temporary file first.
-    const String zkeyAssetName = 'assets/circuits/multiplier2_final.zkey';
-
-    try {
-      // --- 1. Prepare Inputs ---
-      setState(() => _status = 'Preparing inputs...');
-      // Corresponds to the inputs of multiplier2.circom
-      const int a = 3;
-      const int b = 5;
-      final Map<String, List<String>> inputs = {
-        'a': [a.toString()],
-        'b': [b.toString()],
-      };
-      // Convert inputs to JSON string
-      final String inputsJson = jsonEncode(inputs);
-
-      // --- 2. Generate Proof ---
-      setState(() => _status = 'Generating proof...');
-      // Use the zkey asset path provided in pubspec.yaml
-      final GenerateProofResult proofResult = await _mopro.generateProof(
-        zkeyPath: zkeyAssetName,
-        inputs: inputsJson,
-      );
-
-      setState(() {
-         _status = 'Proof generated. Verifying...';
-         _proof = proofResult.proof; // Store for display/use
-         _publicInputs = proofResult.inputs; // Store public inputs (outputs of circuit)
-      });
-
-      <!-- TODO: add verifyProof function -->
-      <!-- // --- 3. Verify Proof ---
-      final bool isValid = await _mopro.verifyProof(
-        zkeyPath: zkeyAssetName, // Use the same zkey asset path
-        proof: proofResult.proof, // Use the generated proof
-        inputs: proofResult.inputs, // Use the public inputs from proof generation
-      );
-
-      setState(() {
-        _status = isValid ? 'Proof Verified Successfully!' : 'Proof Verification Failed!';
-      }); -->
-
-      // Optional: Log results
-      print('Generated Proof: ${proofResult.proof}');
-      print('Public Inputs/Outputs: ${proofResult.inputs}');
-      <!-- print('Verification result: $isValid'); -->
-
-    } catch (e) {
-      setState(() => _status = 'Error: $e');
-      print('Error caught: $e');
-    }
-  }
-}
+print('Generated Proof: ${proofResult.proof}');
+print('Public Inputs/Outputs: ${proofResult.inputs}');
+print('Verification result: $isValid');
 ```
 
 > [!WARNING]  
