@@ -50,6 +50,17 @@ Follow these steps to integrate the Mopro Flutter package into your project.
 
 Here's a basic example demonstrating how to use the package to generate and verify a proof for a simple [multiplier circuit](https://github.com/zkmopro/circuit-registry/blob/main/multiplier2/multiplier2.circom).
 
+Update the main function to initialize the Rust library before running the app:
+
+```dart
+void main() async {
+  await RustLib.init();
+  runApp(const MyApp());
+}
+```
+
+Import the package and use it:
+
 ```dart
 // Import the package
 import 'package:mopro_flutter_bindings/src/rust/third_party/mopro_example_app.dart'; // Change to your library name
