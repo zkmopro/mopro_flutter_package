@@ -83,7 +83,7 @@ final String inputsJson = jsonEncode(inputs);
 // Use the zkey asset path provided in pubspec.yaml
 final CircomProofResult proofResult = await generateCircomProof(
     zkeyPath: zkeyPath,
-    circuitInputs: inputs,
+    circuitInputs: inputsJson,
     proofLib: ProofLib.arkworks,
 );
 
